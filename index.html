@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MY SAVINGS</title><link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#1f7a4d"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png">
+<style>
+:root{--g:#1f7a4d;--g2:#2fa86b;--gl:#e6f4ec;--bg:#f3f5f4;--cd:#fff;--tx:#1d2723;--mu:#6b7873;--bd:#e3e8e6;--rd:#c0453a;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--g:#3bbf80;--g2:#2a9d68;--gl:#1b2c24;--bg:#0f1412;--cd:#192019;--tx:#e8efeb;--mu:#8fa098;--bd:#26302b;--rd:#e0675c;color-scheme:dark}}
+:root[data-theme="dark"]{--g:#3bbf80;--g2:#2a9d68;--gl:#1b2c24;--bg:#0f1412;--cd:#192019;--tx:#e8efeb;--mu:#8fa098;--bd:#26302b;--rd:#e0675c;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;max-width:480px;margin:auto;padding-bottom:84px}
+h1,h2,h3{margin:0}.mu{color:var(--mu);font-size:13px}
+header{padding:18px 18px 6px;display:flex;justify-content:space-between;align-items:center}
+header b{letter-spacing:2px;font-size:15px;color:var(--g)}
+main{padding:8px 16px}
+.card{background:var(--cd);border:1px solid var(--bd);border-radius:18px;padding:16px;margin-bottom:14px}
+.hero{background:linear-gradient(135deg,#1f7a4d,#2fa86b);color:#fff;border:0}
+.hero .mu{color:#d4efe0}.hero h1{font-size:32px;margin:4px 0 14px}
+.row{display:flex;gap:10px}.row>*{flex:1}
+.btn{border:0;border-radius:12px;padding:12px;font:600 14px inherit;font-family:inherit;background:var(--g);color:#fff;cursor:pointer}
+.btn.w{background:rgba(255,255,255,.2)}.btn.o{background:var(--gl);color:var(--g)}.btn.d{background:transparent;color:var(--rd);border:1px solid var(--bd)}
+.btn.s{padding:8px 12px;font-size:13px}
+.sec{display:flex;justify-content:space-between;align-items:center;margin:18px 2px 10px}
+.bar{height:8px;background:var(--bd);border-radius:8px;overflow:hidden;margin:8px 0 6px}.bar i{display:block;height:100%;background:var(--g2);border-radius:8px}
+.li{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid var(--bd)}.li:last-child{border:0}
+.in{color:var(--g);font-weight:700}.out{color:var(--rd);font-weight:700}
+nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;background:var(--cd);border-top:1px solid var(--bd);display:flex;padding:6px 4px calc(6px + env(safe-area-inset-bottom,0px));z-index:5}
+nav button{flex:1;background:none;border:0;color:var(--mu);font:600 11px inherit;font-family:inherit;padding:6px 0;cursor:pointer}
+nav button.on{color:var(--g)}nav svg{display:block;margin:0 auto 2px;width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.chips{display:flex;gap:8px;margin-bottom:12px}.chip{padding:7px 14px;border-radius:20px;border:1px solid var(--bd);background:var(--cd);color:var(--mu);font:600 13px inherit;font-family:inherit;cursor:pointer}.chip.on{background:var(--g);color:#fff;border-color:var(--g)}
+input,select,textarea{width:100%;padding:12px;border:1px solid var(--bd);border-radius:12px;background:var(--bg);color:var(--tx);font:inherit;margin:6px 0 12px}
+textarea{height:110px;font:12px monospace}label{font-size:13px;color:var(--mu)}
+.mod{position:fixed;inset:0;background:rgba(0,0,0,.45);display:flex;align-items:flex-end;justify-content:center;z-index:20}
+.mod>div{background:var(--cd);width:100%;max-width:480px;border-radius:22px 22px 0 0;padding:20px 18px calc(20px + env(safe-area-inset-bottom,0px));max-height:90vh;overflow:auto}
+.tg{display:flex;background:var(--bg);border-radius:12px;padding:4px;margin-bottom:12px}.tg button{flex:1;border:0;background:none;padding:9px;border-radius:9px;font:600 14px inherit;font-family:inherit;color:var(--mu);cursor:pointer}.tg button.on{background:var(--g);color:#fff}
+.lock{position:fixed;inset:0;background:var(--bg);z-index:30;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px}
+.dots{display:flex;gap:14px;margin:22px 0 8px}.dots i{width:14px;height:14px;border-radius:50%;border:2px solid var(--g)}.dots i.f{background:var(--g)}
+.pad{display:grid;grid-template-columns:repeat(3,72px);gap:14px;margin-top:20px}.pad button{height:72px;border-radius:50%;border:1px solid var(--bd);background:var(--cd);color:var(--tx);font:600 24px inherit;font-family:inherit;cursor:pointer}
+.bd{font-size:11px;font-weight:700;padding:3px 8px;border-radius:10px}.ok{background:var(--gl);color:var(--g)}.sm{background:#f3e8c9;color:#7a5a00}
+#toast{position:fixed;top:calc(12px + env(safe-area-inset-top,0px));left:50%;transform:translateX(-50%);background:var(--g);color:#fff;padding:11px 18px;border-radius:14px;z-index:40;font-weight:600;font-size:14px;display:none;max-width:90%;text-align:center}
+.emp{text-align:center;color:var(--mu);padding:26px 10px}
+</style></head><body>
+<div id="toast"></div><div id="lock" class="lock" style="display:none"></div>
+<header><b>MY SAVINGS</b><button class="chip" onclick="lockNow()">Kunci</button></header>
+<main id="app"></main>
+<nav id="nav"></nav><div id="modal"></div>
+<script>
+const K='mysavings_v1';let S=null;
+try{S=JSON.parse(localStorage.getItem(K))}catch(e){}
+S=S||{pin:null,tx:[],goals:[],rem:{on:false,time:'07:00'}};
+const save=()=>{try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}};
+const $=s=>document.querySelector(s);
+const rp=n=>'Rp '+Math.round(n).toLocaleString('id-ID');
+const bal=()=>S.tx.reduce((a,t)=>a+(t.type=='in'?t.amt:-t.amt),0);
+const saved=id=>S.tx.filter(t=>t.goal==id).reduce((a,t)=>a+(t.type=='in'?t.amt:-t.amt),0);
+const fd=d=>new Date(d).toLocaleString('id-ID',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});
+const gname=id=>(S.goals.find(g=>g.id==id)||{}).name||'Umum';
+const hash=p=>{let h=7;for(const c of 'ms$'+p)h=(h*31+c.charCodeAt(0))|0;return String(h)};
+let tab='home',flt='all',per='7',unlocked=false;
+function toast(m){const t=$('#toast');t.textContent=m;t.style.display='block';clearTimeout(toast.t);toast.t=setTimeout(()=>t.style.display='none',2600)}
+const icons={home:'<path d="M3 11l9-8 9 8v9a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1z"/>',goals:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/>',hist:'<path d="M12 7v5l3 2"/><circle cx="12" cy="12" r="9"/>',stat:'<path d="M5 20V10M12 20V4M19 20v-7"/>',set:'<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/>'};
+const names={home:'Beranda',goals:'Target',hist:'Riwayat',stat:'Statistik',set:'Pengaturan'};
+function nav(){$('#nav').innerHTML=Object.keys(names).map(k=>`<button class="${tab==k?'on':''}" onclick="go('${k}')"><svg viewBox="0 0 24 24">${icons[k]}</svg>${names[k]}</button>`).join('')}
+function go(t){tab=t;render();scrollTo(0,0)}
+function txRow(t){return `<div class="li"><div><div style="font-weight:600">${t.type=='in'?'Tabungan masuk':'Penarikan'}</div><div class="mu">${fd(t.d)} · ${gname(t.goal)}${t.note?' · '+esc(t.note):''}</div></div><div class="${t.type=='in'?'in':'out'}">${t.type=='in'?'+':'−'}${rp(t.amt)}</div></div>`}
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function gcard(g,del){const s=Math.max(0,saved(g.id)),p=Math.min(100,Math.round(s/g.target*100));return `<div class="card"><div style="display:flex;justify-content:space-between"><b>${esc(g.name)}</b><span class="in">${p}%</span></div><div class="bar"><i style="width:${p}%"></i></div><div class="mu">${rp(s)} dari ${rp(g.target)}${p>=100?' · Tercapai 🎉':''}</div>${del?`<div class="row" style="margin-top:12px"><button class="btn o s" onclick="txm('in','${g.id}')">Tabung</button><button class="btn d s" onclick="delGoal('${g.id}')">Hapus</button></div>`:''}</div>`}
+function render(){nav();const a=$('#app');
+if(tab=='home'){const m=new Date().getMonth(),mt=S.tx.filter(t=>new Date(t.d).getMonth()==m);
+a.innerHTML=`<div class="card hero"><div class="mu">Total saldo tabungan</div><h1>${rp(bal())}</h1><div class="row"><button class="btn w" onclick="txm('in')">＋ Tabung</button><button class="btn w" onclick="txm('out')">− Tarik</button></div></div>
+<div class="row"><div class="card"><div class="mu">Masuk bulan ini</div><div class="in">${rp(mt.filter(t=>t.type=='in').reduce((a,t)=>a+t.amt,0))}</div></div><div class="card"><div class="mu">Keluar bulan ini</div><div class="out">${rp(mt.filter(t=>t.type=='out').reduce((a,t)=>a+t.amt,0))}</div></div></div>
+<div class="sec"><h3>Target</h3><a class="mu" onclick="go('goals')">Lihat semua</a></div>${S.goals.slice(0,2).map(g=>gcard(g)).join('')||'<div class="card emp">Belum ada target.</div>'}
+<div class="sec"><h3>Terbaru</h3><a class="mu" onclick="go('hist')">Semua</a></div><div class="card">${S.tx.slice(0,4).map(txRow).join('')||'<div class="emp">Belum ada transaksi.</div>'}</div>`}
+else if(tab=='goals'){a.innerHTML=`<div class="sec"><h2>Target Tabungan</h2><button class="btn s" onclick="goalm()">＋ Baru</button></div>${S.goals.map(g=>gcard(g,1)).join('')||'<div class="card emp">Buat target pertama, mis. “Liburan” atau “Dana Darurat”.</div>'}`}
+else if(tab=='hist'){const l=S.tx.filter(t=>flt=='all'||t.type==flt);a.innerHTML=`<h2 style="margin:6px 2px 12px">Riwayat Transaksi</h2><div class="chips">${[['all','Semua'],['in','Masuk'],['out','Keluar']].map(([k,n])=>`<button class="chip ${flt==k?'on':''}" onclick="flt='${k}';render()">${n}</button>`).join('')}</div><div class="card">${l.map(t=>`<div style="display:flex;align-items:center;gap:6px"><div style="flex:1">${txRow(t)}</div><button class="chip" style="padding:4px 9px" onclick="delTx('${t.id}')">✕</button></div>`).join('')||'<div class="emp">Tidak ada transaksi.</div>'}</div>`}
+else if(tab=='stat')stat(a);
+else sett(a)}
+function stat(a){const n=new Date(),b=[];
+if(per=='7')for(let i=6;i>=0;i--){const d=new Date(n);d.setDate(n.getDate()-i);b.push({l:d.toLocaleDateString('id-ID',{weekday:'short'}),k:d.toDateString(),f:t=>new Date(t.d).toDateString()})}
+else for(let i=5;i>=0;i--){const d=new Date(n.getFullYear(),n.getMonth()-i,1);b.push({l:d.toLocaleDateString('id-ID',{month:'short'}),k:d.getMonth()+'-'+d.getFullYear(),f:t=>{const x=new Date(t.d);return x.getMonth()+'-'+x.getFullYear()}})}
+b.forEach(x=>{const l=S.tx.filter(t=>x.f(t)==x.k);x.i=l.filter(t=>t.type=='in').reduce((a,t)=>a+t.amt,0);x.o=l.filter(t=>t.type=='out').reduce((a,t)=>a+t.amt,0)});
+const mx=Math.max(1,...b.map(x=>Math.max(x.i,x.o))),w=300/b.length;
+const svg=`<svg viewBox="0 0 320 170" width="100%">${b.map((x,i)=>{const h1=x.i/mx*120,h2=x.o/mx*120,X=10+i*w;return `<rect x="${X+w*.1}" y="${135-h1}" width="${w*.36}" height="${h1}" rx="3" fill="var(--g2)"/><rect x="${X+w*.5}" y="${135-h2}" width="${w*.36}" height="${h2}" rx="3" fill="var(--mu)" opacity=".55"/><text x="${X+w/2}" y="154" font-size="10" text-anchor="middle" fill="var(--mu)">${x.l}</text>`}).join('')}<line x1="10" x2="310" y1="135" y2="135" stroke="var(--bd)"/></svg>`;
+const ti=b.reduce((a,x)=>a+x.i,0),to=b.reduce((a,x)=>a+x.o,0);
+let run=0;const pts=S.tx.slice().reverse().map(t=>run+=(t.type=='in'?t.amt:-t.amt));
+let line='';if(pts.length>1){const hi=Math.max(...pts),lo=Math.min(0,...pts),r=hi-lo||1;line=`<svg viewBox="0 0 320 90" width="100%"><polyline fill="none" stroke="var(--g)" stroke-width="2.5" stroke-linejoin="round" points="${pts.map((p,i)=>`${10+i/(pts.length-1)*300},${80-(p-lo)/r*70}`).join(' ')}"/></svg>`}
+a.innerHTML=`<h2 style="margin:6px 2px 12px">Statistik</h2><div class="tg"><button class="${per=='7'?'on':''}" onclick="per='7';render()">7 Hari</button><button class="${per=='6'?'on':''}" onclick="per='6';render()">6 Bulan</button></div>
+<div class="card"><div class="mu" style="margin-bottom:6px"><span class="in">■</span> Masuk &nbsp; <span style="color:var(--mu)">■</span> Keluar</div>${svg}<div class="row"><div><div class="mu">Total masuk</div><div class="in">${rp(ti)}</div></div><div><div class="mu">Total keluar</div><div class="out">${rp(to)}</div></div></div></div>
+<div class="card"><b>Pertumbuhan saldo</b>${line||'<div class="emp">Butuh minimal 2 transaksi.</div>'}</div>`}
+function sett(a){const r=S.rem;a.innerHTML=`<h2 style="margin:6px 2px 12px">Pengaturan</h2>
+<div class="card"><b>Pengingat menabung</b> <span class="bd ok">Berfungsi</span><p class="mu">${native?'Notifikasi harian dijadwalkan di sistem Android, tetap bunyi saat aplikasi tertutup.':'Versi web/PWA: pengingat muncul saat aplikasi terbuka. Pasang APK untuk notifikasi saat aplikasi tertutup.'}</p>
+<label>Jam pengingat pagi</label><input type="time" id="rt" value="${r.time}" onchange="S.rem.time=this.value;save();schedRem();toast('Jam disimpan')">
+<div class="row"><button class="btn ${r.on?'':'o'}" onclick="S.rem.on=!S.rem.on;save();schedRem();render()">${r.on?'Aktif ✓ (ketuk untuk matikan)':'Aktifkan'}</button><button class="btn o" onclick="remind()">Uji</button></div></div>
+<div class="card"><b>Keamanan</b> <span class="bd ok">Berfungsi</span><div class="row" style="margin-top:10px"><button class="btn o" onclick="pinm()">Ubah PIN</button><button class="btn o" onclick="lockNow()">Kunci sekarang</button></div></div>
+<div class="card"><b>Backup & Ekspor</b> <span class="bd ok">Berfungsi</span><p class="mu">Simpan backup sebagai file, lalu pulihkan kapan saja.</p><div class="row"><button class="btn" onclick="dlBackup()">Unduh backup</button><button class="btn o" onclick="dlCsv()">Unduh CSV</button></div><button class="btn o" style="width:100%;margin-top:10px" onclick="bk()">Pulihkan / salin teks</button></div>
+<div class="card"><b>Data</b><div class="row" style="margin-top:10px"><button class="btn o" onclick="demo()">Isi data contoh</button><button class="btn d" onclick="if(confirm('Hapus SEMUA data? PIN tetap.')){S.tx=[];S.goals=[];save();render();toast('Data dihapus')}">Hapus data</button></div></div>
+<div class="card"><b>Status fitur</b>${[['Saldo, tabung, tarik','ok'],['Target & progres','ok'],['Riwayat & filter','ok'],['Grafik statistik','ok'],['PIN 6 digit','ok'],['Data tersimpan (lokal)','ok'],['Unduh/bagikan backup & CSV','ok'],['Pulihkan dari file','ok'],['Pasang di layar utama + offline (PWA)','ok'],['Notifikasi harian (APK Android)','ok']].map(([n,c])=>`<div class="li"><span>${n}</span><span class="bd ${c}">${c=='ok'?'Berfungsi':'Simulasi'}</span></div>`).join('')}</div>`}
+function mod(h){$('#modal').innerHTML=`<div class="mod" onclick="if(event.target==this)cm()"><div>${h}</div></div>`}
+const cm=()=>$('#modal').innerHTML='';
+const fmt=e=>{const v=e.value.replace(/\D/g,'');e.value=v?(+v).toLocaleString('id-ID'):''};
+const num=id=>+($(id).value.replace(/\D/g,'')||0);
+function txm(type,gid){mod(`<h3>${type=='in'?'Tambah Tabungan':'Tarik Uang'}</h3><label>Nominal (Rp)</label><input id="a" inputmode="numeric" placeholder="0" oninput="fmt(this)"><label>${type=='in'?'Ke target':'Dari target'}</label><select id="g"><option value="">Umum (tanpa target)</option>${S.goals.map(g=>`<option value="${g.id}" ${g.id==gid?'selected':''}>${esc(g.name)}</option>`).join('')}</select><label>Catatan (opsional)</label><input id="n" maxlength="40"><button class="btn" style="width:100%" onclick="addTx('${type}')">Simpan</button>`)}
+function addTx(type){const amt=num('#a'),goal=$('#g').value;if(!amt)return toast('Isi nominal');
+if(type=='out'){if(amt>bal())return toast('Saldo tidak cukup');if(goal&&amt>saved(goal))return toast('Saldo target tidak cukup')}
+S.tx.unshift({id:'t'+Date.now(),type,amt,goal,note:$('#n').value.trim(),d:new Date().toISOString()});save();cm();render();toast(type=='in'?'Tabungan ditambahkan':'Penarikan dicatat')}
+function goalm(){mod(`<h3>Target Baru</h3><label>Nama target</label><input id="gn" maxlength="30"><label>Nominal target (Rp)</label><input id="gt" inputmode="numeric" oninput="fmt(this)"><button class="btn" style="width:100%" onclick="addGoal()">Buat target</button>`)}
+function addGoal(){const name=$('#gn').value.trim(),target=num('#gt');if(!name||!target)return toast('Lengkapi nama dan nominal');S.goals.push({id:'g'+Date.now(),name,target});save();cm();render()}
+function delGoal(id){if(confirm('Hapus target? Transaksi tetap tersimpan sebagai Umum.')){S.goals=S.goals.filter(g=>g.id!=id);S.tx.forEach(t=>{if(t.goal==id)t.goal=''});save();render()}}
+function delTx(id){if(confirm('Hapus transaksi ini? Saldo akan menyesuaikan.')){S.tx=S.tx.filter(t=>t.id!=id);save();render()}}
+function bk(){mod(`<h3>Backup & Pulihkan</h3><p class="mu">Salin teks ini sebagai backup. Untuk memulihkan, tempel backup lalu ketuk Pulihkan.</p><textarea id="bt">${esc(JSON.stringify({tx:S.tx,goals:S.goals,rem:S.rem}))}</textarea><label>Pulihkan dari file backup (.json)</label><input type="file" accept=".json,application/json" onchange="rf(this)"><div class="row"><button class="btn" onclick="cp('#bt')">Salin</button><button class="btn o" onclick="rest()">Pulihkan</button></div>`)}
+function rest(){try{const d=JSON.parse($('#bt').value);if(!Array.isArray(d.tx)||!Array.isArray(d.goals))throw 0;if(!confirm('Timpa data saat ini?'))return;S.tx=d.tx;S.goals=d.goals;S.rem=d.rem||S.rem;save();cm();render();toast('Data dipulihkan')}catch(e){toast('Format backup tidak valid')}}
+function csv(){const rows=['Tanggal,Jenis,Nominal,Target,Catatan',...S.tx.map(t=>[new Date(t.d).toLocaleString('id-ID'),t.type=='in'?'Masuk':'Keluar',t.amt,gname(t.goal),t.note].map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(','))];mod(`<h3>Ekspor CSV</h3><p class="mu">Salin lalu tempel ke Excel/Google Sheets.</p><textarea id="ct">${esc(rows.join('\n'))}</textarea><button class="btn" style="width:100%" onclick="cp('#ct')">Salin</button>`)}
+function cp(s){const e=$(s);e.select();try{navigator.clipboard.writeText(e.value).then(()=>toast('Tersalin'),()=>{document.execCommand('copy');toast('Tersalin')})}catch(x){try{document.execCommand('copy');toast('Tersalin')}catch(y){toast('Tahan teks lalu pilih Salin')}}}
+function demo(){const n=Date.now(),D=86400000;S.goals=[{id:'g1',name:'Liburan Bali',target:8000000},{id:'g2',name:'Dana Darurat',target:20000000}];
+S.tx=[[0,'in',500000,'g1','Gaji'],[1,'in',250000,'g2',''],[2,'out',100000,'','Jajan'],[3,'in',700000,'g1','Bonus'],[5,'in',300000,'g2',''],[9,'in',1000000,'g2','Gaji'],[35,'in',900000,'g1',''],[65,'in',600000,'g2',''],[95,'in',450000,'g1','']].map(([d,type,amt,goal,note],i)=>({id:'d'+i,type,amt,goal,note,d:new Date(n-d*D).toISOString()}));save();render();toast('Data contoh dimuat')}
+function remind(){toast('☀️ Selamat pagi! Sudah menabung hari ini?');try{if(!native&&window.Notification&&Notification.permission==='granted'){const o={body:'Selamat pagi! Sudah menabung hari ini?',icon:'icon-192.png'};navigator.serviceWorker?navigator.serviceWorker.getRegistration().then(r=>r?r.showNotification('MY SAVINGS',o):new Notification('MY SAVINGS',o)):new Notification('MY SAVINGS',o)}}catch(e){}}
+setInterval(()=>{if(!S.rem.on||!unlocked)return;const d=new Date(),t=String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0');if(t==S.rem.time&&S.rem.last!=d.toDateString()){S.rem.last=d.toDateString();save();remind()}},15000);
+/* PIN */
+let buf='',stage='login',first='';
+function lockUI(msg){const L=$('#lock');L.style.display='flex';
+const title=stage=='login'?'Masukkan PIN':stage=='new'?'Buat PIN 6 digit':'Ulangi PIN';
+L.innerHTML=`<b style="color:var(--g);letter-spacing:3px">MY SAVINGS</b><h2 style="margin-top:18px">${title}</h2><div class="dots">${[0,1,2,3,4,5].map(i=>`<i class="${i<buf.length?'f':''}"></i>`).join('')}</div><div class="mu" style="color:${msg?'var(--rd)':'var(--mu)'};min-height:20px">${msg||''}</div><div class="pad">${[1,2,3,4,5,6,7,8,9,'',0,'⌫'].map(k=>k===''?'<span></span>':`<button onclick="key('${k}')">${k}</button>`).join('')}</div>`}
+function key(k){if(k=='⌫')buf=buf.slice(0,-1);else if(buf.length<6)buf+=k;if(buf.length<6)return lockUI();
+if(stage=='login'){if(hash(buf)==S.pin){buf='';unlocked=true;$('#lock').style.display='none';render()}else{buf='';lockUI('PIN salah')}}
+else if(stage=='new'){first=buf;buf='';stage='confirm';lockUI()}
+else{if(buf==first){S.pin=hash(buf);save();buf='';unlocked=true;stage='login';$('#lock').style.display='none';render();toast('PIN dibuat')}else{buf='';first='';stage='new';lockUI('PIN tidak cocok, ulangi')}}}
+function lockNow(){buf='';unlocked=false;stage=S.pin?'login':'new';lockUI()}
+function pinm(){mod(`<h3>Ubah PIN</h3><label>PIN lama</label><input id="op" type="password" inputmode="numeric" maxlength="6"><label>PIN baru (6 digit)</label><input id="np" type="password" inputmode="numeric" maxlength="6"><button class="btn" style="width:100%" onclick="chPin()">Simpan PIN</button>`)}
+function chPin(){const o=$('#op').value,n=$('#np').value;if(hash(o)!=S.pin)return toast('PIN lama salah');if(!/^\d{6}$/.test(n))return toast('PIN baru harus 6 digit');S.pin=hash(n);save();cm();toast('PIN diubah')}
+const native=!!(window.Capacitor&&Capacitor.isNativePlatform&&Capacitor.isNativePlatform());
+async function dl(name,text,type){
+if(native){try{const P=Capacitor.Plugins;const r=await P.Filesystem.writeFile({path:name,data:text,directory:'CACHE',encoding:'utf8'});await P.Share.share({title:name,url:r.uri,dialogTitle:'Simpan / bagikan'})}catch(e){toast('Gagal menyimpan: '+(e.message||e))}return}
+const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type}));a.download=name;document.body.appendChild(a);a.click();a.remove();toast('File diunduh')}
+const stamp=()=>new Date().toISOString().slice(0,10);
+function dlBackup(){dl('mysavings-backup-'+stamp()+'.json',JSON.stringify({tx:S.tx,goals:S.goals,rem:S.rem}),'application/json')}
+function csvText(){return ['Tanggal,Jenis,Nominal,Target,Catatan',...S.tx.map(t=>[new Date(t.d).toLocaleString('id-ID'),t.type=='in'?'Masuk':'Keluar',t.amt,gname(t.goal),t.note].map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(','))].join('\n')}
+function dlCsv(){dl('mysavings-riwayat-'+stamp()+'.csv','\ufeff'+csvText(),'text/csv')}
+function rf(i){const f=i.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{$('#bt').value=r.result;rest()};r.readAsText(f)}
+async function schedRem(){
+if(native){try{const LN=Capacitor.Plugins.LocalNotifications;await LN.cancel({notifications:[{id:1}]});if(!S.rem.on)return;const p=await LN.requestPermissions();if(p.display!=='granted')return toast('Izin notifikasi ditolak');const [h,m]=S.rem.time.split(':').map(Number);await LN.schedule({notifications:[{id:1,title:'MY SAVINGS',body:'Selamat pagi! Sudah menabung hari ini?',schedule:{on:{hour:h,minute:m},allowWhileIdle:true}}]});toast('Pengingat harian '+S.rem.time+' aktif')}catch(e){toast('Gagal menjadwalkan: '+(e.message||e))}return}
+try{if(S.rem.on&&window.Notification&&Notification.permission==='default')await Notification.requestPermission()}catch(e){}}
+if(!native&&'serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
+if(native)schedRem();
+lockNow();
+</script></body></html>
